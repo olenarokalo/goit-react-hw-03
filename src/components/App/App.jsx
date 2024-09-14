@@ -9,13 +9,13 @@ import ContactForm from "../ContactForm/ContactForm";
 function App() {
   const [search, setSearch] = useState("");
   const [contacts, setContacts] = useState(() => {
-    const savedConts = localStorage.getItem("seved-contacts");
+    const savedConts = localStorage.getItem("saved-contacts");
     if (!savedConts) return initionalContacts;
     return JSON.parse(savedConts);
   });
 
   useEffect(() => {
-    localStorage.setItem("seved-contacts", JSON.stringify(contacts));
+    localStorage.setItem("saved-contacts", JSON.stringify(contacts));
   }, [contacts]);
 
   const visibleContacts = contacts.filter(({ name }) =>
